@@ -1,11 +1,14 @@
-version: '3'
+version: '3.8'
 
 services:
-  app:
-    image: node:18
-    working_dir: /usr/src/app
-    volumes:
-      - .:/usr/src/app
+  goat:
+    labels:
+      shipyard.route: '/'
+    build:
+      context: .
+    environment:
+      NODE_ENV: 'pussy'
     ports:
-      - "3001:3001"
-    command: npm start
+      - '3001:3001'
+    volumes:
+      - '.:/usr/src/app'
